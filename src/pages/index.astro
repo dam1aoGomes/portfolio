@@ -1,0 +1,319 @@
+---
+interface ProjetoMarkdown {
+  url: string;
+  frontmatter: {
+    title: string;
+    description?: string;
+    category: string;
+    tags: string[];
+    image?: string;
+    [key: string]: any; // Permite adicionar outros campos no futuro sem dar erro
+  };
+}
+
+const projetos = Object.values(
+  import.meta.glob<ProjetoMarkdown>('./projects/*.md', { eager: true })
+);
+
+const projetosFrontEnd = projetos.filter(p => p.frontmatter?.category === 'Front-end');
+const projetosBackEnd = projetos.filter(p => p.frontmatter?.category === 'Back-end');
+const projetosFullStack = projetos.filter(p => p.frontmatter?.category === 'Full-stack');
+const projetosGameDev = projetos.filter(p => p.frontmatter?.category === 'Game Dev');
+
+import ScrollToBottom from '../components/ScrollToBottom.astro';
+---
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* --- Estilos do Perfil (Topo) --- */
+        .perfil {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 60px;
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 5px;
+        }
+        .foto-perfil {
+            width: 300px;
+            height: 300px;
+            border-radius: 5%;
+            object-fit: cover;
+        }
+        .info-pessoais h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.5em;
+        }
+        .detalhes {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+        .detalhes span {
+            display: flex;
+            flex-direction: column;
+            margin-right: 15px;
+            margin-bottom: 8px; /* Adicionado um respiro entre as linhas */
+        }
+
+        /* --- Estilos das Seções e Cards --- */
+        .secao-projetos {
+            margin-bottom: 50px;
+        }
+        .secao-projetos h2 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #222;
+        }
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            border: 1px solid #eee;
+            border-radius: 12px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .card-conteudo {
+            padding: 15px;
+            flex-grow: 1;
+        }
+        .card-conteudo h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.2em;
+        }
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        .tag {
+            background: #eef5ff;
+            color: #0076ff;
+            font-size: 0.8em;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        /* --- Estilos de Contato --- */
+        .contato-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        .btn-contato {
+            background: #0076ff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95em;
+            transition: background 0.2s, transform 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Centraliza o texto do botão caso ele expanda */
+            gap: 8px;
+        }
+        .btn-contato.alt {
+            background: #eef5ff;
+            color: #0076ff;
+        }
+        .btn-contato:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        /* --- Estilos de Tecnologias --- */
+        .tech-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .tech-item {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            color: #444;
+            font-weight: 500;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            transition: border-color 0.2s;
+        }
+        .tech-item:hover {
+            border-color: #0076ff;
+            color: #0076ff;
+        }
+
+        /* ========================================= */
+        /*     RESPONSIVIDADE (Celulares e Tablets)  */
+        /* ========================================= */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 15px; /* Reduz as margens laterais no celular */
+            }
+
+            .perfil {
+                flex-direction: column; /* Empilha a foto e os textos */
+                text-align: center;     /* Centraliza tudo */
+                padding: 20px;
+                gap: 20px;
+            }
+
+            .foto-perfil {
+                width: 200px; /* Reduz a foto para não tomar a tela inteira */
+                height: 200px;
+            }
+
+            .info-pessoais h1 {
+                font-size: 2em; /* Reduz um pouco o tamanho do nome */
+            }
+
+            .detalhes span {
+                margin-right: 0;
+                align-items: center; /* Centraliza os detalhes da faculdade e localização */
+            }
+
+            .contato-links {
+                justify-content: center; /* Centraliza os botões de contato */
+                flex-direction: column;  /* Opcional: Empilha os botões se quiser. Se preferir lado a lado, remova essa linha */
+            }
+
+            .btn-contato {
+                width: 100%; /* Faz os botões ocuparem 100% da largura no celular para facilitar o toque */
+                box-sizing: border-box;
+            }
+
+            .tech-container {
+                justify-content: center; /* Centraliza as tags de tecnologia */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CABEÇALHO DO PERFIL -->
+    <header class="perfil">
+        <img src="/images/damiaogomes.jpeg" alt="Minha Foto" class="foto-perfil" />
+        
+        <div class="info-pessoais">
+            <h1>Damião Gomes Neto</h1>
+            
+            <div class="detalhes">
+                <span>Ciência da Computação (Universidade Federal Do Ceará)</span>
+                <span>Técnico em Informática (Escola Estadual de Ensino Profissionalizante - Baturité)</span>
+                <span>Fortaleza, Ceará</span>
+                <span>Português, Inglês</span>
+            </div>
+
+            <p class="bio">
+                Um desenvolvedor focado em criar soluções escaláveis e com ótima experiência para o usuário. Explore abaixo minha evolução e meus principais projetos em Front-end, Back-end e Game Dev.
+            </p>
+
+            <div class="contato-links">
+                <a href="mailto:damiao28.contato@gmail.com" target="_blank" class="btn-contato">damiao28.contato@gmail.com</a>
+                <a href="https://github.com/dam1aoGomes" target="_blank" class="btn-contato alt">GitHub</a>
+                <a href="https://www.linkedin.com/in/damiao-gomes/" target="_blank" class="btn-contato alt">LinkedIn</a>
+				<a href="https://wa.me/5585985525098" target="_blank" class="btn-contato alt">WhatsApp</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="secao-projetos">
+            <h2>Tecnologias e Ferramentas</h2>
+            <div class="tech-container">
+                <span class="tech-item">JavaScript / TypeScript</span>
+                <span class="tech-item">Astro & Bun</span>
+                <span class="tech-item">React</span>
+                <span class="tech-item">Node.js</span>
+                <span class="tech-item">C#</span>
+                <span class="tech-item">Unity</span>
+                <span class="tech-item">Git & GitHub</span>
+                <span class="tech-item">TailwindCSS</span>
+                <span class="tech-item">SQL / Bancos de Dados</span>
+            </div>
+        </section>
+
+        <!-- SEÇÃO GAME DEV -->
+        {projetosGameDev.length > 0 && (
+            <section class="secao-projetos">
+                <h2>Game Dev</h2>
+                <div class="grid-cards">
+                    {projetosGameDev.map((projeto) => (
+                        <a href={projeto.url} class="card">
+                            <img src={projeto.frontmatter.image} alt={projeto.frontmatter.title} />
+                            <div class="card-conteudo">
+                                <h3>{projeto.frontmatter.title}</h3>
+                                <div class="tags-container">
+                                    {projeto.frontmatter.tags.map((tag: string) => (
+                                        <span class="tag">{tag}</span>
+                                    ))}
+                                </div>
+                            </div>
+                        </a>
+                    ))}
+                </div>
+            </section>
+        )}
+
+        <!-- SEÇÃO FRONT-END -->
+        {projetosFrontEnd.length > 0 && (
+            <section class="secao-projetos">
+                <h2>Front-end</h2>
+                <div class="grid-cards">
+                    {projetosFrontEnd.map((projeto) => (
+                        <a href={projeto.url} class="card">
+                            <img src={projeto.frontmatter.image} alt={projeto.frontmatter.title} />
+                            <div class="card-conteudo">
+                                <h3>{projeto.frontmatter.title}</h3>
+                                <div class="tags-container">
+                                    {projeto.frontmatter.tags.map((tag: string) => (
+                                        <span class="tag">{tag}</span>
+                                    ))}
+                                </div>
+                            </div>
+                        </a>
+                    ))}
+                </div>
+            </section>
+        )}
+    </main>
+
+    <ScrollToBottom />
+</body>
+</html>

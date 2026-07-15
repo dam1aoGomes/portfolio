@@ -1,0 +1,48 @@
+name: Deploy to GitHub Pages
+
+on:
+  # Dispara o deploy toda vez que você fizer push na branch principal
+  push:
+    branches: [ main, master ]
+  # Permite rodar manualmente na aba Actions do GitHub
+  workflow_dispatch:
+
+# Permissões necessárias para publicar no Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Instalar o Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Instalar dependências
+        run: bun install
+
+      - name: Compilar o site com Astro
+        run: bun run build
+
+      - name: Fazer upload dos arquivos estáticos
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist # O Astro salva o site pronto na pasta dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publicar no GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
