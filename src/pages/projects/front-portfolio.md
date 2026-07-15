@@ -4,7 +4,7 @@ title: "Site de Portfólio Pessoal"
 description: "Um portfólio estático, rápido e otimizado construído com Astro e Markdown."
 category: "Front-end"
 tags: ["Astro", "Bun", "Markdown", "HTML/CSS"]
-image: "/images/projects/portfolio.png"
+image: "https://res.cloudinary.com/dfq1bwaou/image/upload/v1784140864/portfolio_yntiom.png"
 ---
 
 # O Projeto
