@@ -28,4 +28,4 @@ Este projeto é o meu portfólio pessoal, projetado para funcionar como uma vitr
 ### Código Fonte
 Você pode conferir o código completo, a estrutura de pastas e as configurações de deploy deste projeto no meu repositório:
 
-[**Acessar repositório no GitHub**](https://github.com/meugithub/repositorio)
+[**Acessar repositório no GitHub**](https://github.com/dam1aoGomes/portfolio)
