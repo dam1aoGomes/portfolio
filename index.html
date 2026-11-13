@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-tema="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfólio — Damião Gomes</title>
+  <meta name="description" content="Portfólio de Damião Gomes — desenvolvedor de sites, apps e jogos. Projetos, demos e repositórios em um só lugar.">
+  <meta name="theme-color" content="#0b0d10">
+  <meta name="author" content="Damião Gomes">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Portfólio — Damião Gomes">
+  <meta property="og:description" content="Desenvolvedor de sites, apps e jogos. Projetos, demos e repositórios em um só lugar.">
+  <meta property="og:image" content="./assets/img/og.svg">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Portfólio — Damião Gomes">
+  <meta name="twitter:description" content="Desenvolvedor de sites, apps e jogos.">
+  <meta name="twitter:image" content="./assets/img/og.svg">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%BB%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <script defer src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+  <script defer src="./assets/js/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <div class="bg-layer" aria-hidden="true">
+    <div class="bg-glow"></div>
+  </div>
+
+  <header class="header" id="topo">
+    <div class="header-inner">
+      <a class="logo" href="#topo" aria-label="Início">
+        <span class="logo-mark" id="logo-mark">DG</span>
+        <span class="logo-path">~/portfolio</span>
+      </a>
+
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="#projetos">projetos</a>
+        <a href="#sobre">sobre</a>
+        <a href="#temas">temas</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn-ghost" id="link-github" href="#" target="_blank" rel="noopener noreferrer">
+          <span aria-hidden="true">⌥</span> GitHub
+        </a>
+        <a class="btn btn-primary" id="link-contato" href="#sobre">Contato</a>
+        <button class="btn btn-icon" id="btn-menu" aria-expanded="false" aria-controls="nav-mobile" aria-label="Abrir menu">
+          <span class="burger" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+    <nav class="nav-mobile" id="nav-mobile" aria-label="Navegação mobile" hidden>
+      <a href="#projetos">projetos</a>
+      <a href="#sobre">sobre</a>
+      <a href="#temas">temas</a>
+      <a id="link-contato-mobile" href="#sobre">contato</a>
+    </nav>
+  </header>
+
+  <main id="conteudo">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-titulo">
+      <p class="eyebrow mono reveal">
+        <span class="dot-live" aria-hidden="true"></span> disponível para novos projetos
+      </p>
+
+      <div class="hero-art" aria-hidden="true">
+        <img
+          src="./assets/img/guerreira.png"
+          alt=""
+          class="hero-character"
+          fetchpriority="high"
+          decoding="async"
+        >
+      </div>
+
+      <h1 class="hero-title" id="hero-titulo">
+        <span class="hero-name hero-line-filled" id="hero-nome">DAMIÃO</span>
+        <span class="hero-name hero-line-outline" id="hero-sobrenome">GOMES</span>
+      </h1>
+
+      <div class="hero-terminal reveal" aria-label="Apresentação">
+        <div class="hero-terminal-bar" aria-hidden="true">
+          <span class="hero-terminal-dots"><i></i><i></i><i></i></span>
+          <span class="hero-terminal-file mono">sobre.txt</span>
+          <span class="hero-terminal-status mono">● online</span>
+        </div>
+        <div class="hero-terminal-body">
+          <span class="hero-terminal-prompt mono" aria-hidden="true">&gt;</span>
+          <p class="hero-tagline" id="hero-tagline">Desenvolvedor de sites, apps e jogos</p>
+        </div>
+      </div>
+
+      <ul class="tech-badges reveal" aria-label="Tecnologias">
+        <li class="tech-badge mono" style="--i:0">HTML</li>
+        <li class="tech-badge mono" style="--i:1">CSS</li>
+        <li class="tech-badge mono" style="--i:2">JavaScript</li>
+        <li class="tech-badge mono" style="--i:3">React Native</li>
+        <li class="tech-badge mono" style="--i:4">Expo</li>
+        <li class="tech-badge mono" style="--i:5">Lua</li>
+        <li class="tech-badge mono" style="--i:6">Markdown</li>
+      </ul>
+
+      <!-- Janela de app simulada -->
+      <div class="app-window reveal" role="img" aria-label="Prévia da interface do portfólio com lista de projetos">
+        <div class="app-bar">
+          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="app-bar-title mono">portfolio — zsh</span>
+          <span class="dot-live" aria-hidden="true"></span>
+        </div>
+        <div class="app-body">
+          <div class="app-panel">
+            <p class="panel-head mono"><span>~/projetos</span><span class="panel-count" id="hero-count">0 projetos</span></p>
+            <div class="terminal mono" id="hero-terminal" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJETOS -->
+    <section class="section" id="projetos" aria-labelledby="projetos-titulo">
+      <div class="section-head reveal">
+        <p class="section-kicker mono">// 01 — projetos</p>
+        <h2 class="section-title" id="projetos-titulo">Coisas que eu construí</h2>
+        <p class="section-sub">Sites, apps e jogos. Filtre por tipo ou por tecnologia.</p>
+      </div>
+
+      <div class="filters reveal" id="filters">
+        <div class="filter-group" role="group" aria-label="Filtrar por tipo">
+          <span class="filter-label mono">tipo</span>
+          <div class="chips" id="chips-tipo"></div>
+        </div>
+        <div class="filter-group" role="group" aria-label="Filtrar por tag">
+          <span class="filter-label mono">tags</span>
+          <div class="chips" id="chips-tag"></div>
+        </div>
+        <p class="filter-empty mono" id="filter-empty" hidden></p>
+      </div>
+
+      <div class="grid" id="projetos-grid" aria-live="polite">
+        <p class="grid-loading mono">carregando projetos…</p>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section class="section" id="sobre" aria-labelledby="sobre-titulo">
+      <div class="section-head reveal">
+        <p class="section-kicker mono">// 02 — sobre</p>
+        <h2 class="section-title" id="sobre-titulo">Quem está por trás</h2>
+      </div>
+
+      <div class="sobre-grid">
+        <article class="prose card reveal" id="bio">
+          <p class="mono muted">carregando bio…</p>
+        </article>
+
+        <aside class="conta card reveal" aria-label="Conta local">
+          <div class="conta-top">
+            <div class="avatar" id="avatar" aria-hidden="true">DG</div>
+            <div class="conta-info">
+              <p class="conta-nome" id="conta-nome">Damião Gomes</p>
+              <p class="conta-user mono" id="conta-user">@seu-usuario</p>
+            </div>
+          </div>
+          <dl class="conta-status mono">
+            <div><dt>status</dt><dd><span class="dot-live" aria-hidden="true"></span> online</dd></div>
+            <div><dt>local</dt><dd>~/portfolio</dd></div>
+            <div><dt>modo</dt><dd id="conta-modo">escuro</dd></div>
+          </dl>
+          <div class="conta-links">
+            <a class="btn btn-ghost" id="conta-github" href="#" target="_blank" rel="noopener noreferrer">github ↗</a>
+            <a class="btn btn-ghost" id="conta-email" href="mailto:oi@exemplo.com">email ↗</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- TEMAS -->
+    <section class="section" id="temas" aria-labelledby="temas-titulo">
+      <div class="section-head reveal">
+        <p class="section-kicker mono">// 03 — temas</p>
+        <h2 class="section-title" id="temas-titulo">Personalize à sua vontade</h2>
+        <p class="section-sub">Clique em um tema e a página inteira muda de cor. Sua escolha fica salva.</p>
+      </div>
+
+      <div class="theme-grid reveal" id="theme-grid" role="radiogroup" aria-label="Escolher tema">
+        <!-- preenchido via JS -->
+      </div>
+      <p class="filters-hint mono reveal">
+        ou pressione <kbd>T</kbd> para alternar rapidamente
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-art" aria-hidden="true">
+      <svg class="footer-art-svg" viewBox="0 0 1200 160" preserveAspectRatio="none">
+        <defs>
+          <pattern id="footerDots" width="7" height="7" patternUnits="userSpaceOnUse">
+            <circle cx="1.6" cy="1.6" r="1.4" fill="currentColor"/>
+          </pattern>
+          <mask id="footerMountains">
+            <polyline points="0,160 0,110 80,70 160,95 240,40 320,85 400,55 480,100 560,35 640,90 720,60 800,105 880,45 960,95 1040,65 1120,100 1200,70 1200,160" fill="#fff"/>
+          </mask>
+        </defs>
+        <rect x="0" y="0" width="1200" height="160" fill="url(#footerDots)" mask="url(#footerMountains)" opacity="0.6"/>
+      </svg>
+    </div>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-mark" id="footer-mark">DG</span>
+        <div>
+          <p class="footer-nome" id="footer-nome">Damião Gomes</p>
+          <p class="footer-tag mono" id="footer-tagline">Desenvolvedor de sites, apps e jogos</p>
+        </div>
+      </div>
+      <ul class="footer-links mono">
+        <li><a id="footer-github" href="#" target="_blank" rel="noopener noreferrer">github</a></li>
+        <li><a id="footer-email" href="mailto:oi@exemplo.com">email</a></li>
+        <li><a href="#topo">voltar ao topo ↑</a></li>
+      </ul>
+      <p class="footer-copy mono">
+        © <span id="ano">2025</span> · feito com HTML, CSS e Markdown
+      </p>
+    </div>
+  </footer>
+
+  <noscript>
+    <p class="noscript">Este portfólio precisa de JavaScript para carregar o conteúdo dos arquivos Markdown.</p>
+  </noscript>
+</body>
+</html>

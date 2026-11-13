@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Portfólio — desenvolvedor de sites, apps e jogos">
+  <defs>
+    <linearGradient id="ogBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b0d10"/><stop offset="1" stop-color="#12161d"/>
+    </linearGradient>
+    <radialGradient id="ogGlow" cx="0.5" cy="0.1" r="0.8">
+      <stop offset="0" stop-color="#7dd3fc" stop-opacity="0.24"/>
+      <stop offset="0.55" stop-color="#a78bfa" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#7dd3fc" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="ogGrid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0v48" fill="none" stroke="#e8ecf4" stroke-opacity="0.05"/>
+    </pattern>
+    <linearGradient id="ogText" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#9fd8f8"/>
+    </linearGradient>
+    <linearGradient id="ogBar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7dd3fc"/><stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#ogBg)"/>
+  <rect width="1200" height="630" fill="url(#ogGrid)"/>
+  <rect width="1200" height="630" fill="url(#ogGlow)"/>
+  <g font-family="ui-monospace, monospace" font-size="22" fill="#7dd3fc">
+    <text x="80" y="120">~/portfolio $</text>
+  </g>
+  <text x="80" y="290" font-family="Inter, Helvetica, Arial, sans-serif" font-size="112" font-weight="900"
+        letter-spacing="-5" fill="url(#ogText)">SEU NOME</text>
+  <text x="80" y="356" font-family="ui-monospace, monospace" font-size="28" fill="#9aa4b2">
+    desenvolvedor de sites, apps e jogos
+  </text>
+  <rect x="80" y="400" width="260" height="8" rx="4" fill="url(#ogBar)"/>
+  <g font-family="ui-monospace, monospace" font-size="20" fill="#6b7684">
+    <text x="80" y="520">▦ sites   ◫ jogos   ❯ apps</text>
+    <text x="80" y="556">html · css · javascript · markdown</text>
+  </g>
+</svg>

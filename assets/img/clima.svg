@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img" aria-label="Painel de Clima — captura de tela estilizada">
+  <defs>
+    <linearGradient id="bgW" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d1b2a"/><stop offset="1" stop-color="#0a1018"/>
+    </linearGradient>
+    <linearGradient id="sunW" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fbbf24"/><stop offset="1" stop-color="#f97316"/>
+    </linearGradient>
+    <linearGradient id="lineW" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7dd3fc"/><stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="400" fill="url(#bgW)"/>
+  <g font-family="ui-monospace, monospace" fill="#e6e9ef">
+    <text x="40" y="54" font-size="13" fill="#6b7684">~/clima — localização</text>
+    <text x="40" y="96" font-size="26">São Paulo, BR</text>
+    <circle cx="520" cy="96" r="42" fill="url(#sunW)" opacity="0.92"/>
+    <circle cx="520" cy="96" r="58" fill="#fbbf24" opacity="0.14"/>
+    <text x="40" y="140" font-size="14" fill="#9aa4b2">parcialmente nublado · sensação 27°</text>
+    <g font-size="44" fill="#fff" opacity="0.95">
+      <text x="40" y="220">24°</text>
+    </g>
+    <g font-size="12" fill="#9aa4b2">
+      <text x="190" y="196">umidade 68%</text>
+      <text x="190" y="220">vento 12 km/h</text>
+      <text x="190" y="244">uv 6</text>
+    </g>
+  </g>
+  <g transform="translate(40 280)">
+    <rect width="560" height="90" rx="12" fill="#0f1a26" stroke="#1e2f40"/>
+    <polyline points="18,70 78,52 138,60 198,30 258,44 318,20 378,34 438,14 498,26 542,10"
+              fill="none" stroke="url(#lineW)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+    <g font-family="ui-monospace, monospace" font-size="10" fill="#6b7684">
+      <text x="66" y="84">06h</text><text x="186" y="84">09h</text><text x="306" y="84">12h</text>
+      <text x="426" y="84">15h</text><text x="530" y="84">18h</text>
+    </g>
+  </g>
+</svg>
