@@ -99,4 +99,4 @@ Depois abra <http://localhost:8000>. (Também funciona `npx serve` ou
   versão fixa). O HTML escrito nos `.md` é permitido, mas scripts são removidos.
 - Para trocar o favicon, edite a `<link rel="icon">` do `index.html`.
 
-Feito com HTML, CSS e Markdown.
+Feito com HTML, CSS e Markdown
